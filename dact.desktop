@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Dact
+GenericName=Alpino treebank viewer
+Comment=View and query treebanks
+Exec=dact %U
+Icon=dact-espresso
+Terminal=false
+Type=Application
+Categories=Education;Science;
+MimeType=application/dact;x-scheme-handler/dact
