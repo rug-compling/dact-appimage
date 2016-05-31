@@ -68,10 +68,11 @@ fi
   make install -j5
 )
 
-cp -r /usr/lib/x86_64-linux-gnu/qt5/plugins/* ${PREFIX}/bin
+mkdir -p $PREFIX/lib/qt5/plugins
+cp -r /usr/lib/x86_64-linux-gnu/qt5/plugins/* ${PREFIX}/lib/qt5/plugins
 
 lddtree -l ${PREFIX}/bin/dact | egrep -v "${PREFIX}|lib[Xx]|drm|mesa|glapi|libgcc|libc\.so|librt|libpthread|libdl|libm\.so|libz\.so" | xargs cp -t $PREFIX/lib
-lddtree -l ${PREFIX}/bin/platforms/libqxcb.so | egrep -v "${PREFIX}|lib[Xx]|drm|mesa|glapi|libgcc|libc\.so|librt|libpthread|libdl|libm\.so|libz\.so" | xargs cp -t $PREFIX/lib
+lddtree -l ${PREFIX}/lib/qt5/plugins/platforms/libqxcb.so | egrep -v "${PREFIX}|lib[Xx]|drm|mesa|glapi|libgcc|libc\.so|librt|libpthread|libdl|libm\.so|libz\.so" | xargs cp -t $PREFIX/lib
 
 cp dact.desktop ${APPDIR}
 cp dact/resources/dact-espresso.png dact/resources/dact-espresso.svg ${APPDIR}
